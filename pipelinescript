@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Cloning the Git repository
+                git (
+                    url: "https://github.com/sandeepveggalam124/webhook.git",
+                    branch: "main",
+                    changelog: true,
+                    poll: true
+                    )
+            }
+        }
+        stage('Build') {
+            steps {
+                // Example build step, replace with your actual build commands
+                sh 'ls -ltr'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Example test step, replace with your actual test commands
+                sh 'echo "Testing..."'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Example deployment step, replace with your actual deployment commands
+                sh 'echo "Deploying..."'
+            }
+        }
+    }
+}
